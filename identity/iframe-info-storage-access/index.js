@@ -86,6 +86,8 @@ window.addEventListener('message', message => {
                 if (req[id].method === "info"){
                     // We set storage access to true because storage was granted.
                     storageAccess = true;
+                    // We hide the identity window.
+                    document.getElementById("identity").style.display = "none";
                     // We can also resolve the pending promise.
                     req[id].resolve();
                     // Finally we can delete the corresponding req.

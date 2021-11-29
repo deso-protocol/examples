@@ -10,7 +10,7 @@ In the snippet, this means you would have called the `sendRequest()` function an
 `then` (`Promise` success). We use the `Promise` primitive to handle asynchrony in communicating with the Identity. 
 The general flow of the snippet is as follows:
 1. Call `sendRequest()`
-2. Call `hasStorageAccess()` which sends an `info` request to iframe
+2. `sendRequest` calls `hasStorageAccess()` which sends an `info` request to iframe
 3. Receive a response to the `info` request
    1. If iframe doesn't have the storage access, show the window to the user.
    2. Handle the `storageGranted` message when user clicks on the `iframe` window.

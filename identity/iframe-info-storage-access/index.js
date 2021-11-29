@@ -36,7 +36,7 @@ function hasStorageAccess () {
 
 // This function shows the general logic of sending requests to the DeSo Identity
 // iframe context. It should handle requests such as sign, encrypt, JWT, etc.
-function sentRequest() {
+function sendRequest() {
     hasStorageAccess()
         .then( () => {
             // Send your request, such as sign, encrypt, JWT, etc.
@@ -56,9 +56,9 @@ window.addEventListener('message', message => {
     const id = message.data.id;
     const payload = message.data.payload;
     switch(message.data.method){
-        // If we're receiving a message with method: "info", that means we've previously
-        // sent an info request to the DeSo Identity through hasStorageAccess().
         case "info":
+            // If we're receiving a message with method: "info", that means we've previously
+            // sent an info request to the DeSo Identity through hasStorageAccess().
             if (req[id]) {
                 // If browser isn't supported by the DeSo Identity we return.
                 if (!payload.browserSupported){

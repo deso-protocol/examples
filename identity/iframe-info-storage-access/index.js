@@ -6,7 +6,6 @@ let storageAccess = false;
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)
 // If you're using node.js, you can also use the uuid npm package
 // https://www.npmjs.com/package/uuid
-// You can also use an incrementing integer for id, though UUID v4 is preferred.
 function uuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -23,6 +22,7 @@ function hasStorageAccess () {
             resolve();
         } else {
             // We send an info request to the DeSo Identity window to check if we have storage access.
+            // You can also use an incrementing integer for id, though UUID v4 is preferred.
             const id = uuid();
             document.getElementById("identity").contentWindow.postMessage({
                 id,
